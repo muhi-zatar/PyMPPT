@@ -6,7 +6,7 @@ setup(
     version='v0.0.1',
     author='Muhy Zater',
     author_email='muhizatar95@gmail.com',
-    description='Easy-to-use library to implement ANN-based MPPT',
+    description='Easy-to-use library to implement ANN-based Maximum Power Point Tracker (MPPT)',
     long_description=open('README.md', 'r').read(),
     long_description_content_type='text/markdown',
     keywords=['MPPT', 'ANN-MPPT', 'tensorflow', 'PyMPPT'],

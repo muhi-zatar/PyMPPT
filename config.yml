@@ -1,24 +1,28 @@
-data_dir: "data"
-train_file: "train.csv"
-test_file: "test.csv"
-dev_file: "dev.csv"
-csv_file: "accuracy.csv"
+data_dir: "data" # Directory of data
+train_file: "train.csv" # Training data file
+test_file: "test.csv" # Testing data file
+dev_file: "dev.csv" # Development data file
+csv_file: "accuracy.csv" # Output file of accuracy
 
 network_config:
-  input_size: 5
-  layers: 3
-  hidden_nodes: [256, 64, 64] # If number > 1 then it is FC, < 1 dropout
-  dropout: 0.05
-  activation: 'relu'
+  input_size: 5 # number of inputs parameters (integer larger than 0)
+  layers: 3 # number of layers of the network (integer larger than 0)
+  hidden_nodes: [256, 64, 64] # hidden nodes of each layer (integer larger than 0)
+  dropout: 0.05 # Dropout value [0,1)
+  activation: 'relu' # activation function of the network [sigmoid, tanh, linear, relu]
+
+output_config:
+  activation: 'linear' # activation function of the output layer [sigmoid, linear, tanh, relu]
+  name: 'Duty Cycle' # Nmae of the output layer
 
 train_setup:
-  epochs: 100
-  batch_size: 128
-  optimizer: 'adam'
-  loss: 'mean_squared_error'
-  train_eval_period: 10
-  dev_eval_period: 1
+  epochs: 100 # Number of epochs for training
+  batch_size: 128 # Batch size
+  optimizer: 'adam' # Optimizer type [rmse, adam , sgd, gd]
+  loss: 'mean_squared_error' # loss function
+  train_eval_period: 10 # evaluating model on training data after every n epoch
+  dev_eval_period: 1 # evaluating model on development data after every n epoch
   learning_rate:
-    base: 0.001
-    decay: 0.01
-    decay_after: 10
+    base: 0.001 # learning rate at the beginning of training
+    decay: 0.01 # Decay of the learning rate; new_lr = old_lr * decay
+    decay_after: 10 # starting decay after n epochs
