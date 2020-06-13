@@ -1,0 +1,24 @@
+data_dir: "data"
+train_file: "train.csv"
+test_file: "test.csv"
+dev_file: "dev.csv"
+csv_file: "accuracy.csv"
+
+network_config:
+  input_size: 5
+  layers: 3
+  hidden_nodes: [256, 64, 64] # If number > 1 then it is FC, < 1 dropout
+  dropout: 0.05
+  activation: 'relu'
+
+train_setup:
+  epochs: 100
+  batch_size: 128
+  optimizer: 'adam'
+  loss: 'mean_squared_error'
+  train_eval_period: 10
+  dev_eval_period: 1
+  learning_rate:
+    base: 0.001
+    decay: 0.01
+    decay_after: 10
